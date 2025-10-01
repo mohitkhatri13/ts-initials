@@ -2,12 +2,13 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
+    // this take care of the ecma script version andtsc convert the code torespected targer version of js
     "target": "esnext",
     "types": [],
     // For nodejs:
@@ -34,6 +35,11 @@
 
     // Recommended Options
     "strict": true,
+    // here noImplicitANy true //refer if somehow we forgot to gave type than the ts auto gave type to it 
+    // but if we want more strictnedd that tsc give error by not explicitely define type than we have to amke false it 
+    "noImplicitAny": false,
+    "removeComments": true, // tsc ignore and not copy the comments from ts file to js when it it true
+    
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
