@@ -174,3 +174,89 @@ maxValue([1, 2, 3]);
 //we csn use types to do intersection
 // we can use interface to extend 
 
+
+
+// Enums - enumeration
+
+// it is used to defines named constant 
+// the concept of enmeration is to create a human readable way 
+// to represent a set of constant values, which might otherwise represented as number of strings
+
+enum Direction{
+    up  ="up", // 0  default value 0 1 2 3 we can assign as per our requirement but it is mandatory  than assign the explicit value to all constant
+    down = "down",//1
+    left = "left",//2
+    right = "right"//3
+}
+// or you can used
+type keyinput = "up" | "down" | "left" | "right";
+// but the enum is good
+
+function doSomething(keypressed: Direction){  // (keypressed:keyinput)
+
+}
+doSomething(Direction.up);
+doSomething(Direction.down);
+
+
+
+
+
+// Generics
+// it is language independent concept
+
+
+// Problem
+// let  say we have a function that needs to return the first element of array. array can be of type either string or integer
+
+// there is the error if we not use generics like if we use some function which is for string than how it can be work for number 
+
+// generics enable to create component that work with any type while still providing compile-time type safety
+
+// this is simple code
+function identity( val: (number | string)) : (string| number){
+    return val;
+}
+let output1  = identity("mohit");
+let output2 = identity(22);
+console.log(output1 , " " , output2) 
+
+// below one is generic code
+
+function identitygeneric<T>(val:T) : T{
+return val;
+}
+let output3 = identitygeneric("muskan");
+let output4 = identitygeneric(17)
+console.log(output3 , " "  , output4);
+
+
+// handle the array problem
+
+function getfirstelemment<T>(arr: T[]) : T | undefined{
+ return arr[0];
+}
+
+const el = getfirstelemment<string>(["mohit" , "muskan"]);
+const el2 = getfirstelemment<number>([1 , 2])
+
+
+// exporting and importing modules
+
+// ts follow es6 module system for import and export moduels
+
+// const express = requires("express") // earlier
+
+import express from "express" // now
+
+// export modul e
+// export const a = 1;
+
+// earlier below 
+module.exports = {
+    a:1
+}
+
+
+// 
+

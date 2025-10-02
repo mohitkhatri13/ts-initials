@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 let x = 1;
 console.log(x);
@@ -88,4 +91,36 @@ function maxValue(arr) {
     console.log("maximum value is: ", max);
 }
 maxValue([1, 2, 3]);
+var Direction;
+(function (Direction) {
+    Direction["up"] = "up";
+    Direction["down"] = "down";
+    Direction["left"] = "left";
+    Direction["right"] = "right";
+})(Direction || (Direction = {}));
+function doSomething(keypressed) {
+}
+doSomething(Direction.up);
+doSomething(Direction.down);
+function identity(val) {
+    return val;
+}
+let output1 = identity("mohit");
+let output2 = identity(22);
+console.log(output1, " ", output2);
+function identitygeneric(val) {
+    return val;
+}
+let output3 = identitygeneric("muskan");
+let output4 = identitygeneric(17);
+console.log(output3, " ", output4);
+function getfirstelemment(arr) {
+    return arr[0];
+}
+const el = getfirstelemment(["mohit", "muskan"]);
+const el2 = getfirstelemment([1, 2]);
+const express_1 = __importDefault(require("express"));
+module.exports = {
+    a: 1
+};
 //# sourceMappingURL=a.js.map
