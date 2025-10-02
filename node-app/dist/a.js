@@ -60,4 +60,32 @@ class Employee {
 const e = new Employee("harkirat", 22);
 e.greet("Hello Sir");
 console.log("latest");
+function isprint(id) {
+    console.log(id);
+}
+isprint("1");
+isprint(1);
+const teamlead = {
+    name: "mohit",
+    age: 23,
+    department: "IT",
+};
+function printteamlead(teamlead) {
+    console.log(teamlead.name, teamlead.department);
+}
+printteamlead(teamlead);
+function maxValue(arr) {
+    if (arr.length == 0) {
+        console.log("array is empty");
+        return;
+    }
+    let max = arr[0];
+    for (let a of arr) {
+        if (max && a > max) {
+            max = arr[a];
+        }
+    }
+    console.log("maximum value is: ", max);
+}
+maxValue([1, 2, 3]);
 //# sourceMappingURL=a.js.map

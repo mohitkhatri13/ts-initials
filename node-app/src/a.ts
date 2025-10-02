@@ -47,8 +47,6 @@ function fn() {
 }
 runafter1sec(fn);
 
-
-
 // how to define type of objects in ts
 // ans - we have to create interfaces
 interface User {
@@ -58,10 +56,10 @@ interface User {
 }
 function isLegal(user: User) {
   if (user.age > 18) {
-    console.log("Eligible")
+    console.log("Eligible");
     return true;
   } else {
-    console.log("Not Eligible")
+    console.log("Not Eligible");
     return false;
   }
 }
@@ -75,31 +73,104 @@ function greeting(user: User) {
 }
 greeting({ name: "Mohit", age: 20 });
 
-
-
-
 // not used much in the industy but ans of the question what is the differecnce between interfaces and types
 // type is used to define the union types and interfaces is used to define the object types
 // if we define an interface than the same it can be used to implements classes but types can not be used to define classes
 
-interface person{
-    name:string,
-    age:number,
-    greet(phrase:string): void
+interface person {
+  name: string;
+  age: number;
+  greet(phrase: string): void;
 }
-class Employee implements person{
-    name:string;
-    age:number;
+class Employee implements person {
+  name: string;
+  age: number;
 
-    constructor(n:string , a:number){
-        this.name = n;
-        this.age = a;
-    }
-    greet(phrase :string){
-        console.log(`${phrase} ${this.name}`)
-    }
+  constructor(n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
+  greet(phrase: string) {
+    console.log(`${phrase} ${this.name}`);
+  }
 }
 
-const e = new Employee("harkirat" , 22);
-e.greet("Hello Sir")
-console.log("latest")
+const e = new Employee("harkirat", 22);
+e.greet("Hello Sir");
+console.log("latest");
+
+// Types In Typescript
+
+// similar to interfaces, types let us aggregate data together
+
+type user = {
+  name: "string";
+  age: "number";
+};
+
+// types cannot be used to implement classess but interface can be
+
+// 1.Multiple Types
+
+// print the id of a user either can be a number or string
+
+type isprinttypes = number | string;
+// we can also use above one inside function
+function isprint(id: number | string) {
+  console.log(id);
+}
+isprint("1");
+isprint(1);
+
+// 2. Intersection
+type Employe = {
+  name: string;
+  age: number;
+};
+type Manager = {
+  name: string;
+  department: string;
+};
+
+type TeamLead = Employe & Manager;
+
+const teamlead: TeamLead = {
+  name: "mohit",
+  age: 23,
+  department: "IT",
+};
+
+function printteamlead(teamlead: TeamLead) {
+  console.log(teamlead.name, teamlead.department);
+}
+printteamlead(teamlead);
+
+// Array in Ts
+
+type numberarr = number[];
+function maxValue(arr: numberarr): void {
+  if (arr.length == 0) {
+    console.log("array is empty");
+    return;
+  }
+  let max = arr[0];
+  for (let a of arr) {
+    if (max && a > max) {
+      max = arr[a];
+    }
+  }
+  console.log("maximum value is: ", max);
+}
+maxValue([1, 2, 3]);
+
+
+//interfaces can be implemented in the classes
+// types let u do unions and intersections
+// interfaces can use extends to inherit the properties from another interface but types not 
+
+// type x = interface1 | interface2;
+// things on right can be interfaces but on left it should be type
+
+//we csn use types to do intersection
+// we can use interface to extend 
+

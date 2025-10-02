@@ -67,3 +67,18 @@ var Employee = /** @class */ (function () {
 var e = new Employee("harkirat", 22);
 e.greet("Hello Sir");
 console.log("latest");
+// we can also use above one inside function 
+function isprint(id) {
+    console.log(id);
+}
+isprint("1");
+isprint(1);
+var teamlead = {
+    name: "mohit",
+    age: 23,
+    department: "IT"
+};
+function printteamlead(teamlead) {
+    console.log(teamlead.name, teamlead.department);
+}
+printteamlead(teamlead);
